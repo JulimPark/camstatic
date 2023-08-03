@@ -27,7 +27,8 @@ for i in numbers2:
 
 for i in range(len(numbers2)):
     # try:
-    numbers2[i] = float(numbers2[i])
+    st.write(numbers2[i])
+    # numbers2[i] = float(numbers2[i])
     # except:
     #     pass
 st.write('검색된 숫자')
