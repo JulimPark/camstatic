@@ -24,12 +24,12 @@ for i in numbers2:
         numbers2.remove(i)
     else:
         pass
-
+st.write(numbers2)
 for i in range(len(numbers2)):
     try:
         numbers2[i] = float(numbers2[i])
     except:
-        numbers2.pop(numbers2[i])
+        numbers2.remove(numbers2[i])
         
 st.header('검색된 숫자 목록')
 st.write(numbers2)
