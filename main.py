@@ -21,7 +21,7 @@ numbers = re.sub(r'[^0-9]',' ',text)
 numbers2 = numbers.split(' ')
 for i in numbers2:
     if i=='':
-        numbers2.remove('')
+        numbers2.remove(i)
     else:
         pass
 # print(text)
@@ -33,7 +33,7 @@ for i in range(len(numbers2)):
         numbers2[i] = float(numbers2[i])
     except:
         pass
-
+st.write('검색된 숫자')
 st.write(numbers2)
 numbers2 = np.array(numbers2)
 st.header(f"이미지 내의 숫자 합계는 {format(numbers2.sum(),',')}입니다.")
