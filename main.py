@@ -11,7 +11,7 @@ else:
     picture = st.file_uploader('파일을 선택하세요')
 
 image = Image.open(picture)
-
+st.image(image)
 # 이미지 OCR
 options = r"--psm 11 --oem 3 "
 text = pytesseract.image_to_string(image, config=options,lang='eng+kor+equ')
