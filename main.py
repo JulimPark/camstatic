@@ -20,7 +20,7 @@ text = pytesseract.image_to_string(image, config=options,lang='eng+kor+equ')
 numbers = re.sub(r'[^0-9]',' ',text)
 numbers2 = numbers.split(' ')
 for i in numbers2:
-    if i=='' | i=="" | i==" " | i==' ':
+    if (i=='') | (i=="") | (i==" ") | (i==' '):
         numbers2.remove(i)
     else:
         pass
