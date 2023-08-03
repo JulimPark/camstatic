@@ -15,8 +15,11 @@ text = pytesseract.image_to_string(image, config=options,lang='eng+kor+equ')
 # 수학 공식과 한글 추출
 numbers = re.sub(r'[^0-9]',' ',text)
 numbers2 = numbers.split(' ')
-numbers2 = sorted(set(numbers2))
-numbers2.remove('')
+for i in numbers2:
+    if i=='':
+        numbers2.remove('')
+    else:
+        pass
 # print(text)
 # # 결과 출력
 # print('수학 공식:', formulas)
