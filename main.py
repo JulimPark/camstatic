@@ -26,12 +26,11 @@ for i in numbers2:
         pass
 
 for i in range(len(numbers2)):
-    # try:
-    st.write(numbers2[i])
     try:
         numbers2[i] = float(numbers2[i])
     except:
         numbers2.remove(numbers2[i])
+        
 st.write('검색된 숫자')
 st.write(numbers2)
 numbers2 = np.array(numbers2)
