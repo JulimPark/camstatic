@@ -17,8 +17,8 @@ options = r"--psm 11 --oem 3 "
 text = pytesseract.image_to_string(image, config=options,lang='eng+kor+equ')
 
 # 수학 공식과 한글 추출
-numbers = re.sub(r'[^0-9]',' ',text)
-numbers2 = numbers.split(' ')
+numbers = re.sub(r'[^0-9]',',',text)
+numbers2 = numbers.split(',')
 for i in numbers2:
     if (i=='') | (i=="") | (i==" ") | (i==' '):
         numbers2.remove(i)
