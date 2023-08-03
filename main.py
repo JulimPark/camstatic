@@ -31,10 +31,12 @@ for i in range(len(numbers2)):
     except:
         numbers2.remove(numbers2[i])
         
-st.write('검색된 숫자')
+st.header('검색된 숫자 목록')
 st.write(numbers2)
 numbers2 = np.array(numbers2)
-st.header(f"이미지 내의 숫자 합계는 {format(numbers2.sum(),',')}입니다.")
-st.header(f"이미지 내의 숫자 평균은 {format(numbers2.mean(),',')}입니다.")
-st.header(f"이미지 내의 숫자 표준편차는 {format(np.std(numbers2),',')}입니다.")
-st.header(f"이미지 내의 숫자 분산은 {format(np.var(numbers2),',')}입니다.")
+st.header(f'검색된 숫자의 개수는 :red[{len(numbers2)}개] 입니다.')
+st.subheader(f":green[합계]: :blue[{format(numbers2.sum(),',')}]")
+st.subheader(f":green[평균]: :blue[{format(numbers2.mean(),',')}]")
+st.subheader(f":green[표준편차]: :blue[{format(np.std(numbers2),',')}]")
+st.subheader(f":green[분산]: :blue[{format(np.var(numbers2),',')}]")
+st.warning(':red[컴퓨터 비전 기술로 읽은 데이터에 대한 통계입니다. 인식환경에 따라 오차가 발생할 수 있으니 주의하시기 바랍니다.]')
