@@ -29,7 +29,10 @@ for i in numbers2:
 # print('수학 공식:', formulas)
 # print('한글:', hangul)
 for i in range(len(numbers2)):
-    numbers2[i] = float(numbers2[i])
+    try:
+        numbers2[i] = float(numbers2[i])
+    except:
+        pass
 
 st.write(numbers2)
 numbers2 = np.array(numbers2)
