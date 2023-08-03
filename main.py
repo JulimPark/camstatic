@@ -4,7 +4,11 @@ import re
 import streamlit as st
 import numpy as np
 
-picture = st.camera_input('사진촬영')
+rad = st.radio('입력방법을 선택하세요', options=['upload','use cam'])
+if rad == 'use cam':
+    picture = st.camera_input('사진촬영')
+else:
+    picture = st.file_uploader('파일을 선택하세요')
 
 image = Image.open(picture)
 
