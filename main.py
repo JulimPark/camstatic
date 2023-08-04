@@ -7,19 +7,20 @@ from io import BytesIO
 
 
 rad = st.radio('입력방법을 선택하세요', options=['upload','use cam'],horizontal=True)
-if rad == 'use cam':
-    picture = st.camera_input('사진촬영')
-else:
-    picture = st.file_uploader('파일을 선택하세요')
-    pic_format = ((picture.name).split('.'))[1]
-    if pic_format == 'png':
-        image = Image.open(picture)
-    elif (pic_format == 'jpg') | (pic_format =='jpeg'):
-        image1 = Image.open(picture)
-        bytesio1 = BytesIO()
-        image1.save(bytesio1,format='png')
-        image = Image.open(bytesio1)
 try:
+    if rad == 'use cam':
+        picture = st.camera_input('사진촬영')
+    else:
+        picture = st.file_uploader('파일을 선택하세요')
+        pic_format = ((picture.name).split('.'))[1]
+        if pic_format == 'png':
+            image = Image.open(picture)
+        elif (pic_format == 'jpg') | (pic_format =='jpeg'):
+            image1 = Image.open(picture)
+            bytesio1 = BytesIO()
+            image1.save(bytesio1,format='png')
+            image = Image.open(bytesio1)
+
     st.image(image)
     # 이미지 OCR
     options = r"--psm 11 --oem 3 "
