@@ -12,7 +12,7 @@ try:
         picture = st.camera_input('사진촬영')
     else:
         picture = st.file_uploader('파일을 선택하세요')
-        pic_format = ((picture.name).split('.'))[1]
+        pic_format = ((picture.name).split('.'))[-1]
         if pic_format == 'png':
             image = Image.open(picture)
         elif (pic_format == 'jpg') | (pic_format =='jpeg'):
