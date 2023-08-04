@@ -12,30 +12,29 @@ try:
         picture = st.camera_input('사진촬영')
     else:
         picture = st.file_uploader('파일을 선택하세요')
-        pic_format = ((picture.name).split('.'))[-1]
-        if pic_format == 'png':
-            image = Image.open(picture)
-        elif (pic_format == 'jpg') | (pic_format =='jpeg'):
-            image1 = Image.open(picture)
-            bytesio1 = BytesIO()
-            image1.save(bytesio1,format='png')
-            image = Image.open(bytesio1)
-
+    pic_format = ((picture.name).split('.'))[-1]
+    if pic_format == 'png':
+        image = Image.open(picture)
+    elif (pic_format == 'jpg') | (pic_format =='jpeg'):
+        image1 = Image.open(picture)
+        bytesio1 = BytesIO()
+        image1.save(bytesio1,format='png')
+        image = Image.open(bytesio1)
     st.image(image)
     # 이미지 OCR
     options = r"--psm 11 --oem 3 "
     text = pytesseract.image_to_string(image, config=options,lang='eng+kor+equ')
-    
+
     # 수학 공식과 한글 추출
     numbers = re.sub(r'[^0-9]',',',text)
-    numbers2 = numbers.split(',')
-    
-    for i in numbers2:
-        if len(i) ==0:
-            numbers2.remove(i)
+    new_nums = numbers.split(',')
+    numbers2 = []
+    for i in new_nums:
+        if len(i)>0:
+            numbers2.append(i)
         else:
             pass
-        
+
     for i in range(len(numbers2)):
         try:
             numbers2[i] = float(numbers2[i])
